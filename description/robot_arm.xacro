@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_arm">
+    <!-- CHASSIS ARM -->
+  <joint name="arm_joint1" type="fixed">
+    <parent link="chassis"/>
+    <child link="link1"/>
+    <origin xyz="0.2 0 0.65" rpy="0 0 0"/>
+  </joint>
+
+  <link name="link1">
+    <collision>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.2"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.2"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <inertial>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="1.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="arm_joint2" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz="0 0 0.25" rpy="0 0 0"/>
+    <axis xyz='0 0 3'/>
+    <limit effort='30' lower='-2.617' upper='2.617' velocity='1.571'/>
+  </joint>
+
+  <link name="link2">
+    <collision>
+      <origin xyz="0.025 0 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.2"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.025 0 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.2"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <inertial>
+      <origin xyz="0.025 0 -0.05" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+
+    <!-- CASSIS_OPTICAL ARM -->
+
+
+  <joint name="optical_arm_joint1" type="fixed">
+    <parent link="chassis_optical"/>
+    <child link="optical_link1"/>
+    <origin xyz="-0.01 0 0.3" rpy="0 0 0"/>
+  </joint>
+
+  <link name="optical_link1">
+    <collision>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.2"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.2"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <inertial>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="1.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="optical_arm_joint2" type="revolute">
+    <parent link="optical_link1"/>
+    <child link="optical_link2"/>
+    <origin xyz="0 0 0.25" rpy="0 0 0"/>
+    <axis xyz='0 0 3'/>
+    <limit effort='30' lower='-2.617' upper='2.617' velocity='1.571'/>
+  </joint>
+
+  <link name="optical_link2">
+    <collision>
+      <origin xyz="0.025 0 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.2"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.025 0 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.2"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <inertial>
+      <origin xyz="0.025 0 -0.05" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+</robot>
